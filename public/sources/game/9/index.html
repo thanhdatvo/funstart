@@ -1,0 +1,271 @@
+<script src="./js/game.total.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,300&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Orbitron:500,700" rel="stylesheet" type="text/css">
+
+<link href="/sources/game/9/main.css" rel="stylesheet" type="text/css">
+<script>
+$(document).ready(function(){
+	speedtestReset();
+	$(".playGameNow").click(function(){
+		$("#newsContainer").css('display','none');
+	});
+
+	function playThisGame() {
+		$("#mobilebody").css("background-color","#ed3847");
+		$("#ac6").css("background-image","url('/sources/game/9/img/ac_6.png')");
+		$("#ac5").css("background-image","url('/sources/game/9/img/ac_5.png')");
+		$("#ac4").css("background-image","url('/sources/game/9/img/ac_4.png')");
+		$("#ac3").css("background-image","url('/sources/game/9/img/ac_3.png')");
+		$("#ac2").css("background-image","url('/sources/game/9/img/ac_2.png')");
+		$("#ac1").css("background-image","url('/sources/game/9/img/ac_1.png')");
+		$("#eyedoctordiv").css("visibility","visible");
+		$("#showmenu").css("visibility","visible");
+		$("#acsbg").css("background-size","0%");
+		$(".clock").css("color","#b2d52b");
+		$("#timeleft").css("border","5px solid #2c6dac");
+		speedtestReset();
+		$("#resultdisplay").hide();
+		$("#resultdisplay .prize-message").css("display","hidden");
+		$("#timeleft").show();
+	}
+
+	fsGame.gameStart(function(){
+		playThisGame();
+	});
+});
+		function speedtestReset() {
+			GameRounds++;
+			ColorTestReset('colortest');
+		}
+		var GameRounds=0;
+		//This is called when the score changes (by the speedtest)
+		var TimeRunningOutAudio = new Audio('http:ticking-2.mp3');
+		function speedtestScoreUpdate(score,highscore,time,penalty) {
+
+			$("#score").html("Điểm:<div class=\"yourscore\">"+score.toString()+"</div><p style=\"margin: 15px 0px 0px 0px;\">Các lỗi:</p><div class=\"yourpenalty\">"+penalty.toString()+"</div>");
+
+			if(time>0 && time<6) {
+			  	if(TimeRunningOutAudio.paused) {
+				   TimeRunningOutAudio.play();
+				}
+		 	} else {
+			  if(!TimeRunningOutAudio.paused) {
+			   TimeRunningOutAudio.pause();
+			   TimeRunningOutAudio.currentTime = 0;
+			  }
+		 	}
+
+			 var tm=time.toFixed(1).split(".");
+			if (time>6) {
+				$("#timeleft").html("<div class=\"clock\">"+tm[0]+"</div>");
+			} else {
+				$("#timeleft").html("<div class=\"clock\">"+tm[0]+"<span style=\"font-size: 30px;\">."+tm[1]+"</span></div>");
+			}
+
+			if (score>29) {
+				$("#acsbg").css("background-size","100.00%");
+			} else if (score>28) {
+				$("#acsbg").css("background-size","97.23%");
+			} else if (score>27) {
+				$("#acsbg").css("background-size","94.45%");
+			} else if (score>26) {
+				$("#acsbg").css("background-size","91.67%");
+			} else if (score>25) {
+				$("#acsbg").css("background-size","88.89%");
+			} else if (score>24) {
+				$("#ac6").css("background-image","url('/sources/game/9/img/ac_6-2.png')");
+				$("#acsbg").css("background-size","86.11%");
+			} else if (score>23) {
+								$("#acsbg").css("background-size","83.33%");
+			} else if (score>22) {
+				$("#acsbg").css("background-size","80.00%");
+			} else if (score>21) {
+				$("#acsbg").css("background-size","76.67%");
+			} else if (score>20) {
+				$("#acsbg").css("background-size","73.33%");
+			} else if (score>19) {
+				$("#ac5").css("background-image","url('/sources/game/9/img/ac_5-2.png')");
+				$("#acsbg").css("background-size","70.00%");
+			} else if (score>18) {
+						$("#acsbg").css("background-size","66.67%");
+			} else if (score>17) {
+				$("#acsbg").css("background-size","63.33%");
+			} else if (score>16) {
+				$("#acsbg").css("background-size","60.00%");
+			} else if (score>15) {
+				$("#acsbg").css("background-size","56.67%");
+			} else if (score>14) {
+				$("#ac4").css("background-image","url('/sources/game/9/img/ac_4-2.png')");
+				$("#acsbg").css("background-size","53.33%");
+			} else if (score>13) {
+				$("#acsbg").css("background-size","50.00%");
+			} else if (score>12) {
+				$("#acsbg").css("background-size","46.67%");
+			} else if (score>11) {
+				$("#acsbg").css("background-size","43.33%");
+			} else if (score>10) {
+				$("#acsbg").css("background-size","40.00%");
+			} else if (score>9) {
+				$("#ac3").css("background-image","url('/sources/game/9/img/ac_3-2.png')");
+				$("#acsbg").css("background-size","36.67%");
+			} else if (score>8) {
+						$("#acsbg").css("background-size","33.33%");
+			} else if (score>7) {
+				$("#acsbg").css("background-size","30.00%");
+			} else if (score>6) {
+				$("#acsbg").css("background-size","26.67%");
+			} else if (score>5) {
+				$("#acsbg").css("background-size","23.33%");
+			} else if (score>4) {
+				$("#ac2").css("background-image","url('/sources/game/9/img/ac_2-2.png')");
+				$("#acsbg").css("background-size","20.00%");
+			} else if (score>3) {
+							$("#acsbg").css("background-size","16.67%");
+			} else if (score>2) {
+				$("#acsbg").css("background-size","12.50%");
+			} else if (score>1) {
+				$("#acsbg").css("background-size","8.33%");
+			} else if (score>0) {
+				$("#acsbg").css("background-size","4.17%");
+				$('#ac1').css('background-image','url(/sources/game/9/img/ac_1-2.png)');
+			} else {}
+
+			if (time<6) {
+				$(".clock").css("color","#ef3d4e");
+				$("#timeleft").css("border","5px solid #ef3d4e");			
+			} else {
+				$(".clock").css("color","#a1e03d");
+				$("#timeleft").css("border","5px solid #3d9fe7");			
+			}			
+		}	
+		function getFacebookDivContent(highScore,imageName,headerText,contentText) {
+			var retHtml = "";
+			//retHtml = retHtml + "<a href='"+str_share+"' target='_blank' >";
+			retHtml = retHtml + "<div class=\"facebook-share\" style=\"background-image: url('/sources/game/9/img/" + imageName + ".png'); \">";
+			retHtml = retHtml + "<div class=\"character-title\">";
+			retHtml = retHtml + headerText;
+			retHtml = retHtml + "</div>";
+			retHtml = retHtml + "<div class='resultDes'>" + contentText + "</div>";
+			//retHtml = retHtml + "<div class=\"share-button-placeholder\"><div class=\"share-button\">Chia sẻ trên Facebook và thách thức các bạn của bạn</div></div>";
+			retHtml = retHtml + "</div>";
+			//retHtml = retHtml + "</a>";
+			return retHtml;
+		}
+		
+		//This is called when the game ends (by the colortest)
+		function speedtestPublishResult(score,highscore,time,penalty) {
+			
+			$("#resultdisplay .message").html("<span class='nowrap'>Kết quả tốt nhất: <span class=\"resultbest\">"+highscore.toString()+"</span></span> <span class='nowrap'>Điểm: <span class=\"resultscore\">"+score.toString()+"</span></span> <span class='nowrap' id='errorstext'>Các lỗi: <span class=\"resultpenalty\">"+penalty.toString()+"</span></span>");
+			$("#resultdisplay .prize-message").hide();
+			$("#resultdisplay .prize-formcontainer").hide();
+			$("#bubble").html("<p>Kết quả tốt nhất của bạn là<br><span style=\"font-weight: bold; font-size: 36px;\">"+highscore.toString()+"!</span></p>");
+			$("#eyedoctordiv").css("visibility","hidden");
+			$("#showmenu").css("visibility","hidden");
+			$("#timeleft").hide();
+
+			var rsDiv = $("#resultdisplay .facebook-div");
+			if (highscore>29) {
+				rsDiv.html(getFacebookDivContent(highscore.toString(),"ac_7-2","rô bốt","Sắc giác và kỹ năng sống của bạn là không thể tin được.  Bạn có thể nhìn được con muỗi ở cách xa vài dặm."));
+				rsDiv.show();
+			} else if (highscore>24) {
+				rsDiv.html(getFacebookDivContent(highscore.toString(),"ac_6-2","diều hâu","Wow, bạn có sắc giác tuyệt vời. Bạn có thể nhìn được một con sâu ở trên ngọn cây."));
+				rsDiv.show();
+			} else if (highscore>19) {
+				rsDiv.html(getFacebookDivContent(highscore.toString(),"ac_5-2","con hổ","Sắc giác của bạn rất tuyệt vời. Bạn không có rắc rối gì để sống sót trong rừng già. Bạn có thể nhìn thấy khi nào chú hổ hàng xóm đi vào nhà tắm ở rất xa."));
+				rsDiv.show();
+			} else if (highscore>14) {
+				rsDiv.html(getFacebookDivContent(highscore.toString(),"ac_4-2","con mèo","Bạn có sắc giác tốt. Các chú chuột sẽ phải trốn khi bạn di chuyển"));
+				rsDiv.show();
+			} else if (highscore>9) {
+				rsDiv.html(getFacebookDivContent(highscore.toString(),"ac_3-2","con chó","Bạn có sắc giác khá ổn. Bạn nhìn được hầu hết các miếng xương mà người ta ném cho, nhưng đôi khi bạn cũng để sót."));
+				rsDiv.show();
+			} else if (highscore>4) {
+				rsDiv.html(getFacebookDivContent(highscore.toString(),"ac_2-2","chuột chũi","Bạn có sắc giác tạm ổn. Bạn nhìn thấy bức tường gần nhất nhưng không đi được xa vì bạn có thể bị mất lối. "));
+				rsDiv.show();
+			} else {
+				rsDiv.html(getFacebookDivContent(highscore.toString(),"ac_1-2","con dơi","Sắc giác của bạn không có gì để viết về nó. Dơi sống trong bóng tối và sử dụng các giác quan khác chứ không phải thị giác, và bạn cũng sẽ làm vậy."));
+				rsDiv.show();
+			}
+			
+			speedtestScoreUpdate(score,highscore,time,penalty);
+
+			fsGame.setResultHtml($("#resultdisplay").html());
+			fsGame.gameOver(score);
+			fsGame.createShare({
+				name: fsGame.user.displayName + " có thị giác của: " + $(".character-title").html(),
+				des : $(".resultDes").text()
+			});
+
+			//$("#resultdisplay").show();
+		}</script>
+
+	<script type="application/javascript" src="/sources/game/9/ColorTest.js"></script>
+
+	<div id="newsContainerWide">
+		<div id="speedtestholder">
+			<div id="testbg">
+				<div id="eyeheader">Hộp nào có màu sắc khác thường?</div>
+                
+                <div id="colortest"><div class="missclick" style="float: left; border-radius: 10px; cursor: pointer; border: 2px solid rgb(255, 255, 255); box-sizing: border-box; width: 50%; height: 50%; background-color: rgb(138, 85, 87);">&nbsp;</div><div class="missclick" style="float: left; border-radius: 10px; cursor: pointer; border: 2px solid rgb(255, 255, 255); box-sizing: border-box; width: 50%; height: 50%; background-color: rgb(138, 85, 87);">&nbsp;</div><div class="missclick" style="float: left; border-radius: 10px; cursor: pointer; border: 2px solid rgb(255, 255, 255); box-sizing: border-box; width: 50%; height: 50%; background-color: rgb(138, 85, 87);">&nbsp;</div><div class="thechosenone" style="float: left; border-radius: 10px; cursor: pointer; border: 2px solid rgb(255, 255, 255); box-sizing: border-box; width: 50%; height: 50%; background-color: rgb(243, 190, 192);">&nbsp;</div></div>
+
+				<div id="score">Điểm:<div class="yourscore">0</div><p style="margin: 15px 0px 0px 0px;">Các lỗi:</p><div class="yourpenalty">0</div></div>
+
+    			<div id="timeleft" style="border: 5px solid rgb(61, 159, 231);"><div class="clock" style="color: rgb(161, 224, 61);">15</div></div>
+            </div>
+			
+			<div id="resultdisplay" style="display: none;">
+				<div class="prize-message"></div>		
+				<div class="prize-formcontainer"></div>
+				<div class="message"></div>
+                <div class="facebook-div"></div>
+				
+			</div>
+	</div>
+	<p class="levels">Kết quả hiện tại của bạn- Bạn có thị lực giống con vật nào?</p>
+	<div id="acsbg">
+		<div class="acs">
+		<div id="ac1" class="acx">
+		</div>
+		<p>con dơi<br>0-4</p>
+		</div>
+		<div class="acs">
+		<div id="ac2" class="acx">
+		</div>
+		<p>chuột chũi<br>5-9</p>
+		</div>
+		<div class="acs">
+		<div id="ac3" class="acx">
+		</div>
+		<p>con chó<br>10-14</p>
+		</div>
+		<div class="acs">
+		<div id="ac4" class="acx">
+		</div>
+		<p>con mèo<br>15-19</p>
+		</div>
+		<div class="acs">
+		<div id="ac5" class="acx">
+		</div>
+		<p>con hổ<br>20-24</p>
+		</div>
+		<div class="acs">
+		<div id="ac6" class="acx">
+		</div>
+		<p>diều hâu<br>25-29</p>
+		</div>
+	</div>
+
+	<div class="testeriInstructions" id="newsContainer">
+		<h2>Kiểm tra sắc giác của bạn</h2>
+		<p>1. Bấm vào hộp mà có màu sắc khác thường với những hộp còn lại.</p>
+		<p>2. Bài kiểm tra bắt đầu khi bạn bấm vào hộp đầu tiên</p>
+		<p>3. Bạn có 15 giây để trả lời vào mỗi ô</p>
+		<p>4. Khi bạn bấm sai một hộp bạn sẽ mất 3 giây.</p>
+		<div class="playGameNow">Đã hiểu, chơi luôn</div>
+	</div>
+</div>

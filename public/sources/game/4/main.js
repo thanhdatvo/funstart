@@ -1,0 +1,434 @@
+/**
+ * Created by andh on 8/24/16.
+ */
+var i;
+var diem;
+var level;
+var myCounter, myCounter2;
+var isEnd = false;
+var pt;
+var kq;
+data_bg = ['#2C3E50','#1F3A93','#1E824C'];
+var lv;
+
+dl = [
+    'Thánh đã hút quá nhiều thuốc rồi, tập trung chơi lại lần nữa xem nào!! =)))',
+    'Bạn nằm trong 17% người chơi tốt nhất!! Áp lực về thời gian có vẻ không là vấn đề gì đối với bạn. Bạn thông minh, nhạy bén và rất tỉnh táo! Share kết quả cho bạn bè cùng chơi nào!!',
+    'Xin chúc mừng! Bạn đã lọt vào top 10% người chơi tốt nhất!! Bạn rất thông minh và không dễ bị lừa bởi những phép toán dễ nhầm lẫn. Phải nói rằng bạn rất bản lĩnh đấy! Share kết quả để thách đấu bạn bè nào!!',
+    'Cao thủ xin nhận của em một lạy!! Không chỉ tính nhẩm nhanh như điện, bạn còn có một hệ thần kinh thép. Khi bạn đã tập trung rồi không gì có thể làm bạn xao nhãng được nữa!! Share kết quả để thách đấu bạn bè nào :D',
+    'Xin bái phục cao thủ! Chỉ có 5% người chơi đạt đến Level này thôi nhé. Tốc độ tính toán của bạn ngang với tốc độ xử lý của máy tính. Share kết quả này lên chắc chắn Google sẽ mời bằng được bạn về làm việc!!',
+    'Đáng kinh ngạc!! Bạn chính là thiên tài!! bởi chỉ có 0,1% người chơi đạt đến level này. Share kết quả này lên chắc chắn Google, Microsoft, Facebook... sẽ đánh nhau để giành được bạn về làm CEO!!'
+];
+Array.prototype.insert = function (index, item) {
+    this.splice(index, 0, item);
+};
+function Countdown(options) {
+    var timer,
+        instance = this,
+        seconds = options.seconds || 10,
+        updateStatus = options.onUpdateStatus || function () {
+            },
+        counterEnd = options.onCounterEnd || function () {
+            };
+
+    function decrementCounter() {
+        updateStatus(seconds);
+        if (seconds <= 0) {
+            counterEnd();
+            instance.stop();
+        }
+        seconds--;
+    }
+
+    this.changeTime = function () {
+        seconds = seconds - 20;
+    }
+    this.start = function () {
+        clearInterval(timer);
+        timer = 0;
+        seconds = options.seconds;
+        timer = setInterval(decrementCounter, 100);
+    };
+
+    this.stop = function () {
+        clearInterval(timer);
+    };
+}
+
+
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i -= 1) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+
+}
+function result() {
+    isEnd = true;
+    myCounter.stop();
+    myCounter2.stop();
+    if(!diem) diem = 0;
+    if (diem <= 10) {
+        des = dl[0];
+        $('.des').html(dl[0]);
+    } else if (diem > 10 && diem <= 30) {
+        des = dl[1];
+        $('.des').html(dl[1]);
+    } else if (diem > 30 && diem <= 50) {
+        des = dl[2];
+        $('.des').html(dl[2]);
+    } else if (diem > 50 && diem <= 70) {
+        des = dl[3];
+        $('.des').html(dl[3]);
+    } else if (diem > 70 && diem <= 80) {
+        des = dl[4];
+        $('.des').html(dl[4]);
+    } else {
+        des = dl[5];
+        $('.des').html(dl[5]);
+    }
+    var obj = {
+        title: 'Level:' + diem,
+        des: des,
+        image: fsGame.user.avatar
+    }
+    fsGame.setResultObj(obj);
+    fsGame.gameOver({score: diem*300, isDead: true});
+    fsGame.createShare({
+        share: false,
+        htmlTag: "#canvan",
+        name: fsGame.user.displayName + " đạt level " + diem,
+        des: des
+    },function (res) {
+        console.log('res:',res);
+    });
+
+}
+
+
+function check_R(str) {
+
+    kq = str.split('/');
+    pt = kq[0];
+    kq = kq[1];
+    //$('.question').html(pt);
+    if (kq == 'r') {
+
+        diem = diem + 1;
+        if(fsGame.isBattle){
+            fsGame.updateObj({score: diem*300});
+        }
+        i = i + 1;
+        level++;
+        if (level < 8) {
+            myCounter.stop();
+            myCounter.start();
+        } else {
+            myCounter.stop();
+            myCounter2.stop();
+            myCounter2.start();
+        }
+
+
+        setTimeout(function () {
+            newLv(i);
+        }, 100);
+
+    } else {
+        i = i + 0;
+        myCounter.stop();
+        myCounter2.stop();
+        result();
+    }
+
+}
+function check_W(str) {
+
+    kq = str.split('/');
+    pt = kq[0];
+    kq = kq[1];
+    //$('.question').html(pt);
+    if (kq == 'w') {
+        diem = diem + 1;
+        i = i + 1;
+        level++;
+        if (level < 8) {
+            myCounter.stop();
+            myCounter.start();
+        } else {
+            myCounter.stop();
+            myCounter2.stop();
+            myCounter2.start();
+        }
+        setTimeout(function () {
+            newLv(i);
+        }, 100);
+    } else {
+        i = i + 0;
+        myCounter.stop();
+        myCounter2.stop();
+        result();
+    }
+
+
+}
+
+function newLv() {
+    $('.levelGame').html('Score.' + level);
+    var rand_bg = Math.floor(Math.random() * data_bg.length);
+    $('.question').addClass('animated fadeInDown');
+    $('.part01').css('background-color', data_bg[rand_bg]);
+    $('.question').html(lv[i].split('/')[0]);
+
+}
+
+
+
+function startGame() {
+    i = 0;
+    diem = 0;
+    level = 1;
+    $('.levelGame').html('Score.' + level);
+    pt = '';
+    kq = '';
+    lv = [
+        "3 + 2 = 5/r",
+        "4 - 2 = 3/w",
+        "1 - 2 = 1/w",
+        "7 + 3 = 10/r",
+        "3 - 5 = 2/w",
+        "2 - 2 = 0/r",
+        "5 + 5 = 10/r",
+        "10 - 7 = 4/w",
+        "11 - 7 = 3/w",
+        "4 - 5 = -1/r",
+        "6 + 2 = 9/w",
+        "2 - 3 = -1/r",
+        "3 + 8 = 11/r",
+        "4 + 2 = 8/w",
+        "7 - 8 = -1/r",
+        "9 - 7 = 2/r",
+        "4 + 1 = -5/w",
+        "5 + 1 = 6/r",
+        "6 + 9 = 14/w",
+        "11 - 2 = 8/w",
+        "11 - 13 = -2/r",
+        "20 - 10 = 30/w",
+        "20 + 10 = 30/r",
+        "21 - 2 = 19/r",
+        "18 + 19 = 37/r",
+        "11 + 1 = 11/w",
+        "7 - 11 = -6/w",
+        "2 - 12 = -9/w",
+        "17 + 0 = 16/w",
+        "14 - 3 = 11/r",
+        "23 - 8 = 17/w",
+        "25 - 7 = 18/r",
+        "18 - 9 = 9/r",
+        "6 - 2 = 4/r",
+        "2 - 4 = -2/r",
+        "-1 - 1 = -2/r",
+        "-3 + 5 = 2/r",
+        "1 + 1 = 2/r",
+        "18 - 9 = 17/w",
+        "7 + 6 = 12/w",
+        "1 + 7 = 8/r",
+        "2 + 0 = 2/r",
+        "0 - 3 = -3/r",
+        "0 - 5 = - 5/r",
+        "4 - 7 = -3/r",
+        "1 + 4 = 5/r",
+        "3 + 4 = 7/r",
+        "6 + 0 = 0/w",
+        "6 + 0 = 6/r",
+        "10 + 15 = 23/w",
+        "13 + 19 = 22/w",
+        "20 + 35 = 55/r",
+        "30 - 15 = 15/r",
+        "90 - 45 = 55/w",
+        "100 - 23 = 67/w",
+        "45 - 12 = 23/w",
+        "67 - 17 = 50/r",
+        "150 - 50 = 100/r",
+        "45 + 7 = 52/r",
+        "0 - 56 = -56/r",
+        "40 - 15 = 24/w",
+        "76 - 36 = 40/r",
+        "12 + 28 = 40/r",
+        "34 - 4 = -30/w",
+        "14 + 26 = 30/w",
+        "17 + 18 = 35/r",
+        "12 - 20 = -8/r",
+        "11 + 5 = 17/w",
+        "12 - 6 = 6/r",
+        "77 - 34 = 43/r",
+        "65 - 56 = 9/r",
+        "3 x 3 = 6/w",
+        "77 - 34 = 43/r",
+        "65 - 56 = 9/r",
+        "7 + 4 = 14/w",
+        "14 + 16 = 30/r",
+        "2 + 2 = 6/w",
+        "1 + 1 = 4/w",
+        "17 - 5 = 15/w",
+        "21 + 17 = 38/r",
+        "19 - 9 = 10/r",
+        "2 + 3 = 6/w",
+        "9 + 15 = 25/w",
+        "13 + 6 = 18/w",
+        "7 - 4 = 2/w",
+        "23 - 5 = 15/w",
+        "11 + 4 =15/r",
+        "7 + 7 = 14/r",
+        "42 - 3 = 38/w",
+        "18 + 6 = 26/w",
+        "9 - 9 = 0/r",
+        "-9 - 9 = 0/w",
+        "6 x 2 = 8/w",
+        "2 x 3 = 5/w",
+        "1 + 3 = 5/w",
+        "4 + 4 = 8/r",
+        "6 + 8 = 14/r",
+        "10 - 11 = 1/w",
+        "8 + 9 = 19/w",
+        "10 + 13 = 23/r",
+        "5 x 1 = 6/w",
+        "6 + 1 = 6/w",
+        "25 - 9 = 15/w",
+        "32 - 11 = 21/r",
+        "34 - 14 = 20/r",
+        "31 + 11 = 41/w",
+        "9 x 1 =10/w",
+        "10 - 8 = 3/w",
+        "7 + 9 = 16/r",
+        "6 + 5 = 11/r",
+        "6 + 9 = 15/r",
+        "17 - 6 = 11/r",
+        "4 x 5 = 9/w",
+        "6 + 7 = 15/w",
+        "4 x 1 = 5/w",
+        "9 x 0 = 9/w",
+        "11 - 1 = 12/w",
+        "15 + 1 = 16/r",
+        "6 - 1 = 7/w",
+        "4 + 3 = 9/w",
+        "22 - 5 = 17/r",
+        "22 - 11 = 11/r",
+        "5 x 2 = 7/w",
+
+        "2 x 3 = 6/r",
+        "2 : 1 = 2/r",
+        "4 x 2 = 8/r",
+        "-4 x 1 = 4/w",
+        "10 : 2 = 5/r",
+        "6 x 2 - 1 = 11/r",
+        "1 x 3 = 4/w",
+        "1 x 7 = 8/w",
+        "8 x 1 = 8/r",
+        "-5 x 2 = 10/w",
+        "-5 x 2 = -10/r",
+        "-2 x 5 = 3/w",
+        "13 x 1 = 13/r",
+        "24 : 4 = 6/r",
+        "30 : 6 = 5/r",
+        "12 : 9 = 3/w",
+        "7 : 2 = 4/w",
+        "25 : 5 = 5/r",
+        "2 x 2 -1 = 3/r",
+        "3 x 1 = 3/r",
+        "1 x 8 = 9/w",
+        "1 x 7 = 7/r",
+        "8 x 1 = 8/r",
+        "2 x 8 = 16/r",
+        "10 : 2 = 5/r",
+        "9 : 3 = 3/r",
+        "-9 : 9 = 1/w",
+        "-9 : 9 = -1/r",
+        "2 x 5 - 1 = 9/r",
+        "-2 x -3 = -6/w",
+        "-3 x -2 = 6/r",
+        "12 x 2 = 24/r",
+        "13 x 2 = 15/w",
+        "11 x 3 = 33/r",
+        "50 x 3 = 150/r",
+        "-3 x -5 = -15/w",
+        "-5 x 3 = 15/w",
+        "25 x 2 = 50/r",
+        "-2 x 6 = 4/w",
+        "-2 x 6 = -12/r",
+        "-4 x -5 = 20/r",
+        "-4 x -5 = -20/w"
+    ];
+    shuffle(lv);
+    console.log(lv.length);
+    myCounter = new Countdown({
+        seconds: 50,  // number of seconds to count down
+        onUpdateStatus: function (sec) {
+            $('.timeGame').html(sec / 10 + 's');
+        }, // callback for each second
+        onCounterEnd: function () {
+            result();
+        }
+    });
+    myCounter2 = new Countdown({
+
+        seconds: 30,  // number of seconds to count down
+        onUpdateStatus: function (sec) {
+            $('.timeGame').html(sec / 10 + 's');
+        }, // callback for each second
+        onCounterEnd: function () {
+            result();
+        }
+    });
+
+    $('.question').html(lv[0].split('/')[0]);
+
+    if (level < 8) {
+        myCounter.start();
+    } else {
+        myCounter.stop();
+        myCounter2.start();
+    }
+
+
+    $(".part01").css("display", "block");
+}
+    $(window).ready(function () {
+        fsGame.gameStart(function(e){
+            startGame();
+        });
+
+        $('.ans_right').click(function () {
+            $('.question').removeClass('animated fadeInDown');
+            if (diem < lv.length - 1) {
+                check_R(lv[i]);
+            } else {
+                if (level < 8) {
+                    myCounter.stop();
+                } else {
+                    myCounter2.stop();
+                }
+                result();
+            }
+
+        });
+        $('.ans_wrong').click(function () {
+            $('.question').removeClass('animated fadeInDown');
+            if (diem < lv.length - 1) {
+                check_W(lv[i]);
+            } else {
+                if (level < 8) {
+                    myCounter.stop();
+                } else {
+                    myCounter2.stop();
+                }
+                if(!isEnd){
+                    result();
+                }
+
+            }
+        });
+    });

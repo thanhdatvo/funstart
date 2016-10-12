@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="./css/animate.css" type="text/css">
+<script src="./js/game.total.js"></script>
+<script src="./js/game.util.js"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'
+      xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" href="/sources/game/6/main.css" type="text/css">
+
+<div id="gameManager">
+    <div id="gameOperator" class="noselect" ondragstart="return false;" ondrop="return false;">
+        <!--<div id="gameContent" style="display: none">-->
+        <div id="gameInfo">
+            <span id="level"></span>
+            <!--http://jsfiddle.net/wz32sy7y/558/-->
+            <span id="timer">
+                <h2 id="timerNumber"></h2>
+                <svg xmlns="http://www.w3.org/2000/svg">
+                    <circle id="timerCircle"
+                            r="50"
+                            cx="81"
+                            cy="66"
+                            stroke="#6fdb6f"
+                            stroke-width="8"
+                            fill="none"
+                    >
+                    </circle>
+                </svg>
+            </span>
+            <span id="HP"></span>
+        </div>
+        <div style="clear: both;"></div>
+        <!--<div style="height:100%">-->
+            <table id="tableOfImages"></table>
+        <!--</div>-->
+    </div>
+    <div class="share" style="position: relative;display: none">
+        <!--<div class="share" style="position: relative;">-->
+        <div id="finisher">
+            <!--<fs-img src='/bg.png'/>-->
+            <!--<div id="result"></div>-->
+            <img id="finisherBackground"/>
+            <div id="finisherImageContainer">
+                <span class="verticalHelper"></span>
+                <img id="finisherImage" />
+            </div>
+            <div id="finisherText">
+                    <div id="finisherRemark"></div>
+                    <div id="finisherLevel"></div>
+                    <div id="finisherSuggestion"></div>
+            </div>
+        </div>
+    </div>
+    <fs-script src="/modals.js"></fs-script>
+    <fs-script src="/main.js"></fs-script>
+</div>
+ 

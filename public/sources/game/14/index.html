@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="bututu">Chơi</button>
+<script src="./js/game.total.js"></script>
+<script>
+    var level = 1;
+$('#bututu').click(function(){
+    if(fsGame.isBattle){
+        fsGame.updateObj({score: level*2000});
+        level ++;
+    }
+});
+    fsGame.fetchPlayers = function(data){
+        console.log('data in game',data);
+    }
+</script>
+<script>
+
+</script>
+</body>
+</html>

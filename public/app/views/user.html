@@ -1,0 +1,17 @@
+<section ng-if="$root.user && $root.profile.data._id" ng-controller="FeedController" ng-init="loadInfomations($root.profile.data._id)">
+    <md-tabs md-dynamic-height md-border-bottom >
+        <md-tab label="Lịch sử chơi">
+            <div style="padding: 30px">
+                <div class="activity-frame">
+                     <!--infinite-scroll="activities.loadMore()"-->
+                     <!--infinite-scroll-immediate-check="false"-->
+                     <!--infinite-scroll-distance="1">-->
+                    <activity-card ng-repeat="item in activities.data" item="item" flex="33" flex-md="50" flex-sm="50" flex-xs="100"></activity-card>
+                    <loading-circle flex="100"></loading-circle>
+                </div>
+            </div>
+        </md-tab>
+        <md-tab label="Cây kỹ năng">
+        </md-tab>
+    </md-tabs>
+</section>

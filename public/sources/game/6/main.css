@@ -1,0 +1,274 @@
+#gameManager{
+    margin: auto;
+    max-width: 750px;
+    max-height: 750px;
+    /*background-color: #fff;*/
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+#gameOperator {
+    max-width: 500px;
+    max-height:500px;
+    /*background-color: #fff;*/
+    padding-bottom: 10px;
+    padding-top: 20px;
+    margin: auto;
+}
+#gameInfo{
+    text-align: center;
+}
+#level{
+    float: left;
+    display: block;
+    width: 33%;
+    font-size: 40px;
+    font-weight: 900;
+}
+#HP{
+    display: block;
+    float: right;
+    width: 33%;
+    font-weight: 900;
+    font-size: 40px;
+}
+#timer{
+    width: 33%;
+    float: left;
+    /*font-size: 74px;*/
+    /*display: block;*/
+    /*font-weight: 900;*/
+    top: -21px;
+    position: relative;
+}
+#timerNumber{
+    text-align: center;
+    position: absolute;
+    line-height: 30px;
+    font-size: 59px;
+    width: 100%;
+}
+svg{
+    width: 160px;
+    height: 130px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+#timerCircle{
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+    transition: all 1s linear;
+}
+#tableOfImages{
+    width: 100%;
+    top: -30px;
+    position: relative;
+    /*margin-top: 30px;*/
+}
+#tableOfImages td {
+    text-align: center;
+}
+#tableOfImages td img {
+    width: 70%;
+    cursor: pointer;
+}
+
+.heartImage{
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+    margin-rigth: 10px;
+}
+#finisher{
+    height: 100%;
+    position: relative;
+}
+@font-face {
+    font-family: finiserTextFont;
+    src: url(font/SVN-Whimsy.ttf);
+}
+#finisherImageContainer {
+    max-width: 750px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    text-align: center;
+}
+.verticalHelper{
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+#finisherImage{
+    margin: 75px 80px 32px 85px;
+    width: 216px;
+}
+#finisherBackground{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+#finisherText{
+    width: 100%;
+    top: 0;
+    color: rgb(101, 43, 14);
+    font-size: 36px;
+    font-family: finiserTextFont;
+    /*height: 100%;*/
+    position: absolute;
+}
+#finisherLevel{
+    font-size: 27px;
+    text-align: center;
+    margin-top: 220px;
+}
+#finisherRemark{
+    line-height: 60px;
+    margin-top: 17px;
+    font-size: 30px;
+    text-align: center;
+}
+#finisherSuggestion{
+    text-align: center;
+    font-size: 17px;
+    margin: 0 auto;
+    padding-bottom: 7px;
+}
+div.layout-wrap.layout-row{
+    padding:0;
+}
+/*animate*/
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    will-change: transform;
+}
+@-webkit-keyframes bounceInLeft {
+    from, 60%, 75%, 90%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-3000px, 0, 0);
+        transform: translate3d(-3000px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0);
+        transform: translate3d(25px, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0);
+    }
+
+    to {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes bounceInLeft {
+    from, 60%, 75%, 90%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-3000px, 0, 0);
+        transform: translate3d(-3000px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0);
+        transform: translate3d(25px, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0);
+    }
+
+    to {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.bounceInLeft {
+    -webkit-animation-name: bounceInLeft;
+    animation-name: bounceInLeft;
+}
+
+.shakeAnimation {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+@media screen and (max-width: 480px){
+    #level{
+        font-size: 22px;
+    }
+    #HP{
+        font-size: 27px;
+    }
+    .heartImage {
+        height: 22px;
+        width: 22px;
+    }
+    svg{
+        height: 80px;
+        width: 80px;
+    }
+    #timerNumber{
+        line-height: 25px;
+        font-size: 32px;
+    }
+    #timerCircle{
+        stroke-dasharray: 177;
+    }
+}

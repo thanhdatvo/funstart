@@ -1,0 +1,48 @@
+<!--<md-card layout="row" layout-wrap>-->
+    <!--<div class="game-card activity-info" layout="row" flex="100" >-->
+        <!--<div layout="column" flex="25" layout-align="center center">-->
+            <!--<md-button ng-href="/game/{{::item.game._id}}?utm_campaign=tracking&utm_source=activity" class="md-raised" aria-label="Thumb"><img ng-src="{{::item.game.thumb}}"></md-button>-->
+        <!--</div>-->
+        <!--<div layout="column" flex="75" layout-align="space-between start">-->
+            <!--<div flex="66" class="content"><span ng-if="!item.opponents.length">Đã chơi</span><span ng-if="item.opponents.length">Đã thách đấu</span> <a ng-href="/game/{{::item.game._id}}?utm_campaign=tracking&utm_source=activity">{{::item.game.title}}</a> vào <span ng-bind="item.created | timeAgo"></span></div>-->
+            <!--<div flex="33" class="activity-status" ng-if="item.isWin != null" layout="row" flex="100">-->
+                <!--<div layout="column" style="margin-right: 5px">-->
+                    <!--<md-chips ng-if="item.isWin"><md-chip class="md-accent">thắng</md-chip></md-chips>-->
+                    <!--<md-chips ng-if="!item.isWin"><md-chip class="md-primary">thua</md-chip></md-chips>-->
+                <!--</div>-->
+                <!--<div layout="column">-->
+                    <!--<div role="button" layout="row" class="content" ng-repeat="player in item.opponents | limitTo: 3">-->
+                        <!--<a ng-click="onViewProfile(player,$event)" class="a-item"><img layout="column" class="status-img" ng-src="{{::player.avatar}}"></a>-->
+                        <!--<a ng-click="onViewProfile(player, $event)" flex layout="column" class="status-name" ng-if="item.opponents.length == 1">{{::player.displayName}}</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div flex="33" class="activity-status" ng-if="item.isWin == null" layout="row" flex="100">-->
+                <!--<div layout="column">-->
+                    <!--<md-chips ><md-chip class="md-accent">điểm</md-chip></md-chips>-->
+                <!--</div>-->
+                <!--<div layout="column" class="status-name">-->
+                    <!--{{::item.score}}-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</md-card>-->
+<div class="activity-panel" ng-class="{'solo': !item.opponents.length,'battle': item.opponents.length}">
+    <div class="activity-line"></div>
+    <div class="activity-point"></div>
+    <h4 ng-bind="item.created | timeAgo"></h4>
+    <div class="activity-info" layout-align="start center">
+        <span>Chơi</span>
+        <img ng-src="{{::item.game.thumb}}">
+        <a ng-href="/game/{{::item.game._id}}?utm_campaign=tracking&utm_source=activity">{{::item.game.title}}</a>
+        <span> và </span>
+        <span ng-if="!item.opponents.length"> đạt số điểm {{item.score}}</span>
+        <span ng-if="item.opponents.length && item.isWin" class="title win"> CHIẾN THẮNG </span>
+        <span ng-if="item.opponents.length && !item.isWin" class="title lose"> THUA CUỘC </span>
+        <div class="activity-opponent" ng-class="{'win': item.isWin,'lose': !item.isWin}" ng-repeat="opponent in item.opponents">
+            <img ng-src="{{opponent.avatar}}"><a ng-click="onViewProfile(opponent, $event)" class="name">{{opponent.displayName}}</a>
+        </div>
+    </div>
+</div>

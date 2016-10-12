@@ -1,0 +1,135 @@
+<script src="./js/game.total.js"></script>
+<fs-link href="/main.css" rel="stylesheet" type="text/css" />
+<script>
+    function FloatTopDiv()
+    {
+        startLX = ((document.body.clientWidth -MainContentW)/2)-LeftBannerW-LeftAdjust , startLY = TopAdjust+80;
+        startRX = ((document.body.clientWidth -MainContentW)/2)+MainContentW+RightAdjust , startRY = TopAdjust+80;
+        var d = document;
+        function ml(id)
+        {
+            var el=d.getElementById?d.getElementById(id):d.all?d.all[id]:d.layers[id];
+            el.sP=function(x,y){this.style.left=x + 'px';this.style.top=y + 'px';};
+            el.x = startRX;
+            el.y = startRY;
+            return el;
+        }
+        function m2(id)
+        {
+            var e2=d.getElementById?d.getElementById(id):d.all?d.all[id]:d.layers[id];
+            e2.sP=function(x,y){this.style.left=x + 'px';this.style.top=y + 'px';};
+            e2.x = startLX;
+            e2.y = startLY;
+            return e2;
+        }
+        window.stayTopLeft=function()
+        {
+            if (document.documentElement && document.documentElement.scrollTop)
+                var pY =  document.documentElement;
+            else if (document.body)
+                var pY =  document.body;
+            if (document.body.scrollTop > 30){startLY = 3;startRY = 3;} else {startLY = TopAdjust;startRY = TopAdjust;};
+            ftlObj.y += (pY+startRY-ftlObj.y)/16;
+            ftlObj.sP(ftlObj.x, ftlObj.y);
+            ftlObj2.y += (pY+startLY-ftlObj2.y)/16;
+            ftlObj2.sP(ftlObj2.x, ftlObj2.y);
+            setTimeout("stayTopLeft()", 1);
+        }
+        ftlObj = ml("divAdRight");
+        //stayTopLeft();
+        ftlObj2 = m2("divAdLeft");
+        stayTopLeft();
+    }
+
+    function CloseFloatRight() {
+        document.getElementById("divAdRight").style.display = "none"
+    }
+    function CloseFloatLeft() {
+        document.getElementById("divAdLeft").style.display = "none"
+    }
+
+    function ShowAdDiv()
+    {
+        var objAdDivRight = document.getElementById("divAdRight");
+        var objAdDivLeft = document.getElementById("divAdLeft");
+        if (document.body.clientWidth < 1000)
+        {
+            objAdDivRight.style.display = "none";
+            objAdDivLeft.style.display = "none";
+        }
+        else
+        {
+            objAdDivRight.style.display = "block";
+            objAdDivLeft.style.display = "block";
+            FloatTopDiv();
+        }
+    }
+</script>
+<div class="total_game">
+    <div class="container">
+        <div class="heading showResult">
+            <!--<h1 class="title" style="color:#850217">LoL 2048</h1>-->
+            <h1 class="showResultGame"></h1>
+            <div class="scores-container">
+                <div class="score-container showScore">0</div>
+                <div class="best-container showScore">0</div>
+            </div>
+        </div>
+
+        <a class="restart-button replayGame" id="replayGame">Chơi lại</a>
+        <div class="game-container">
+            <div class="game-message">
+                <div class="lower">
+                    <p></p>
+                    <a class="keep-playing-button">Tiếp tục</a>
+                    <a class="retry-button">Chơi lại</a>
+                    <div class="score-sharing"></div>
+                </div>
+                <a class="shareScoreWall" id="shareScoreWall" >Chia sẽ điểm</a>
+            </div>
+            <div class="grid-container">
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+
+            <div class="tile-container">
+
+            </div>
+            <div class="show_top_result"></div>
+
+            <fs-script src="/js/bind_polyfill.js"></fs-script>
+            <fs-script src="/js/classlist_polyfill.js"></fs-script>
+            <fs-script src="/js/animframe_polyfill.js"></fs-script>
+            <fs-script src="/js/keyboard_input_manager.js"></fs-script>
+            <fs-script src="/js/html_actuator.js"></fs-script>
+            <fs-script src="/js/grid.js"></fs-script>
+            <fs-script src="/js/tile.js"></fs-script>
+            <fs-script src="/js/local_storage_manager.js"></fs-script>
+            <fs-script src="/js/game_manager.js"></fs-script>
+            <fs-script src="/js/application.js"></fs-script>
+        </div>
+        <div class="rankContainer"></div>
+    </div>
+</div>

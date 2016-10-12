@@ -1,0 +1,441 @@
+.dhbc{
+    width:740px;
+    height: 540px;
+}
+
+.dhbc_loading{
+    width:740px;
+    height: 540px;
+    z-index: 5;
+    background-color: rgba(0,0,0,0);
+    top:0px;
+    position: absolute;
+    display:none;
+}
+
+/*dinh dang cac thanh phan trong the header*/
+
+.header{
+    top:0px;
+    width: 740px;
+    height: 60px;
+    position: absolute;
+}
+    .guide{
+        height:20px;
+        width:60px;
+        top: 20px;
+        left: 40px;
+        position: absolute;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .guide:hover{
+        color: #8C4600;
+    }
+    
+    #guide{
+        display: none;
+        background-color: white; 
+        width:420px;height: 280px; 
+        position: absolute; 
+        top: 32px; 
+        left: 140px; 
+        z-index: 10;
+        overflow: auto;
+    }
+    
+    #close{
+        background-color: #242424;
+        margin:10px 5px 5px 5px;
+        padding:5px 5px 5px 5px;
+        width:15px;
+        height:15px;
+        opacity:0.8;
+        color:white;
+        cursor: pointer;
+    }
+    
+    .mark{
+        height:20px;
+        width:60px;
+        top: 25px;
+        right: 120px; 
+        position: absolute;
+        color: black;
+        font-size: 13px;
+        font-weight: bold;         
+    }
+    
+    .time{
+        height:20px;
+        width:60px;
+        top: 25px;
+        right: 20px; 
+        position: absolute;
+        color: black;
+        font-size: 13px;
+        font-weight: bold;       
+    }
+
+/*dinh dang phan noi dung*/    
+    
+.dhbc_content{
+    top:60px;
+    width:740px;
+    height: 485px;
+    position: absolute;
+}  
+
+    .avatar{
+        height: 80px;
+        width:80px;
+        top:30px;
+        left: 30px;
+        position: absolute;
+    }
+    
+    .list{
+            width: 40px;
+            height:40px;
+            top:16px;
+            right:23px;
+            position: absolute;
+            cursor: pointer;
+            border-radius: 32px 32px 32px 32px;
+    }
+    
+    /*hien thi top*/
+    .top{
+        top:0px;
+        left:0px;
+        width:743px;
+        height: 543px;
+        z-index: 10;
+        position: absolute;
+        display:none;
+    }
+    
+    .top_view{
+            background-color: white;
+            z-index: 10;
+            position: absolute;
+            top:50px;
+            left:200px;
+            width: 320px;
+            height:400px;
+            cursor: pointer;
+            overflow-y: auto;
+    }
+    
+    .top_header{
+            text-align: center;
+            font-size: 16px;
+            width: 280px;
+            height:30px;
+            cursor: pointer;
+            border-bottom: 1px silver solid;
+            padding:10px 0px 10px 10px;
+            font-weight: bold;
+            color:#3B5;
+    }
+    
+    .row{
+            width: 280px;
+            height:30px;
+            cursor: pointer;
+            border-bottom: 1px silver solid;
+            padding:10px 0px 10px 10px;
+    }
+    .top_img{
+        float:left;
+        width: 30px;
+        height:30px;
+        cursor: pointer;
+        border-radius: 15px 15px 15px 15px;
+    }
+    .top_name{
+        padding:10px 0px 0px 10px;
+        float:left;
+        width: 160px;
+        height:30px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .top_score{
+        padding:10px 0px 0px 10px;
+        float:left;
+        width: 50px;
+        height:30px;
+        cursor: pointer;
+        font-weight: bold;
+        color:#3B5;
+    }
+    /*dinh dang phan anh cau hoi */
+    .content_picture{
+        width:420px;
+        height: 275px;
+        top: 30px;
+        left:157px;
+        position: absolute; 
+    }
+    
+    .truefalse{
+        width:100%;
+        height: 100%;
+        top: 0px;
+        left:0px;
+        position: absolute;
+        z-index: 3;
+        display: none; 
+    }
+    
+    .picture{
+        width:100%;
+        height: 100%;
+        top: 0px;
+        left:0px;
+        position: absolute; 
+    }
+    
+    .loading{
+        width:60px;
+        height: 60px;
+        top: 180px;
+        left:180px;
+        position: absolute; 
+    }
+    
+    .loading_game{
+        width:90px;
+        height: 90px;
+        top: 180px;
+        left:320px;
+        position: absolute; 
+    }
+    
+    /* the quang cao-------------------------*/
+    .commercial{
+        width:199px;
+        height: 327px;
+        bottom:0px;
+        right: 0px;
+        position: absolute;
+    }
+    
+    /* dinh dang cac o phan cau hoi, mang cau hoi sinh ra tu dong-------------------*/
+    .answer{
+        width:315px;
+        height: 40px;
+        top:320px;
+        left: 180px;
+        position: absolute;
+        font-size: 20px;
+    }
+    
+        .answer_sm{
+            padding:4px;
+            width:40px;
+            height: 40px;
+            top:320px;
+            left: 515px;
+            position: absolute;
+            font-size: 20px;
+            color: green;
+        }
+
+    /* dinh dang phan cac o chu de tra loi bao gom mang sinh ra tu dong*/
+    .result{
+        width: 500px;
+        height: 60px;
+        top:366px;
+        left:105px;
+        position: absolute;
+    }
+    
+        .aline_result{
+            height: 60px;
+            position: absolute;
+        }
+        .array_result{
+            background-color: white;
+            padding:5px;
+            margin-left:5px;
+            margin-top:5px;
+            width:15px;
+            height:15px;
+            float:left;
+            box-shadow: 1px 1px 1px 1px #CACACA;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        
+        .array_result:hover{
+            box-shadow: 1px 1px 1px 1px #34F3F3;
+        }
+    
+    .start{
+        width: 90px;
+        height: 90px;
+        left:28px;
+        top:240px;
+        position: absolute;
+        cursor: pointer;
+        z-index: 4;
+    }
+    
+    .share_score{
+            width: 54px;
+            height:54px;
+            top:140px;
+            left:40px;
+            position: absolute;
+            cursor: pointer;
+            border-radius: 32px 32px 32px 32px;
+    }
+    
+    .ok{
+        left:180px;
+        top:220px;
+        position: absolute;
+        z-index: 4;
+        background-color: #00A800;
+        padding:5px 2px 2px 2px;
+        border-radius: 4px 4px 4px 4px;
+        color:white;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        outline: none;
+        }
+        
+    .complete{
+        width: 100px;
+        height: 35px;
+        left:150px;
+        top:220px;
+        position: absolute;
+        z-index: 10;
+        background: rgba(0,0,0,0.6);
+        padding:5px 2px 2px 2px;
+        border: 1px gray solid;
+        border-radius: 3px 3px 3px 3px;
+        color:white;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+    }
+        
+    #submit{
+        height: 15px;
+        left:300px;
+        top:190px;
+        position: absolute;
+        z-index: 4;
+        background-color: #00A800;
+        padding:2px 2px 2px 2px;
+        border: 1px gray solid;
+        border-radius: 3px 3px 3px 3px;
+        color:white;
+        font-weight: bold;
+        cursor: pointer;
+        }
+        
+    #cancle{
+        height: 15px;
+        left:300px;
+        top:215px;
+        position: absolute;
+        z-index: 4;
+        background-color: #00A800;
+        padding:2px 2px 2px 2px;
+        border: 1px gray solid;
+        border-radius: 3px 3px 3px 3px;
+        color:white;
+        font-weight: bold;
+        cursor: pointer;
+        }
+        
+    #submit1{
+        height: 15px;
+        left:300px;
+        top:190px;
+        position: absolute;
+        z-index: 4;
+        background-color: #00A800;
+        padding:2px 2px 2px 2px;
+        border: 1px gray solid;
+        border-radius: 3px 3px 3px 3px;
+        color:white;
+        font-weight: bold;
+        cursor: pointer;
+        }
+        
+    #cancle1{
+        height: 15px;
+        left:300px;
+        top:215px;
+        position: absolute;
+        z-index: 4;
+        background-color: #00A800;
+        padding:2px 2px 2px 2px;
+        border: 1px gray solid;
+        border-radius: 3px 3px 3px 3px;
+        color:white;
+        font-weight: bold;
+        cursor: pointer;
+        }
+        
+    .share_content{
+        width: 220px;
+        height: 45px;
+        left:50px;
+        top:190px;
+        position: absolute;
+        z-index: 4;
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 2px 2px 2px 2px #313131;
+    }
+    
+    /*-----------footer-------------------------------------------*/
+    
+    .dhbc_footer{
+        height:300px;
+        width:100px;
+        top:70px;
+        left:0px;
+        position: absolute;
+    }
+    
+    /* dinh dang skill gom 6 skill*/
+    
+        .foreknowledge{
+            width: 54px;
+            height:54px;
+            top:60px;
+            left:40px;
+            position: absolute;
+            cursor: pointer;
+            border-radius: 32px 32px 32px 32px;
+        }
+        
+        .call_friend{
+            width: 90px;
+            height: 90px;
+            left:28px;
+            top:240px;
+            position: absolute;
+            cursor: pointer;
+            border-radius: 25px 25px 25px 25px;
+            display: none;
+            z-index: 5;
+        }
+        
+
+        
+
+        
+        

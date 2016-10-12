@@ -1,0 +1,178 @@
+.game-section, .game-area{
+    background-color: #ffffff;
+}
+.gameMain {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow: auto;
+}
+
+.gameBox{
+    border-right: 1px solid #d42424;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-top: 1px solid #d42424;
+    cursor: pointer;
+    z-index: 1;
+    text-align: center;
+}
+.gameBox:hover {
+    border: 2px solid red;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    background-color: #f9f9f9;
+}
+.gameBox span{
+    font-size: 21px;
+    font-weight: bold;
+    font-family: Arial;
+}
+.gameBox .xTich {
+    color: red;
+}
+.gameBox .oTich {
+    color: #001bff;
+}
+.gameBox-win {
+    background-color: yellow;
+    border-left: 1px solid #d42424;
+}
+.showResult{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.54);
+    z-index: 4;
+    display: none;
+}
+.mainResult {
+    width: 50%;
+    min-width: 300px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin: 100px auto auto;
+    text-align: center;
+    padding: 10px;
+}
+.btngame {
+    width: 120px;
+    background-color: #201f56;
+    border: 2px solid #201f56;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    display: inline-block;
+    margin: 5px 5px 5px 15px;
+    color: #ffffff;
+    font-weight: bold;
+}
+.btngame:hover {
+    background-color: #ffffff;
+    color: #201f56;
+}
+.btngame:active {
+    background-color: #e9e9e9;
+}
+.showDetailUser {
+    width: 160px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 10px;
+    border: 1px solid #bbb;
+    z-index: 3;
+    border-radius: 3px;
+}
+.showDetailUser img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+}
+.showDetailUser .infoUser {
+    display: inline-block;
+    font-size: 12px;
+    margin: 5px 5px 0;
+    font-weight: bold;
+    color: #201f56;
+}
+.showDetailUser .historyUser {
+    font-size: 11px;
+    color: #888;
+    margin: 0 5px;
+}
+.play01 {
+    left: 10px;
+    display: none;
+}
+.play02 {
+    right: 10px;
+    display: none;
+}
+.play01 img{
+    float: left;
+}
+.play02 img{
+    float: right;
+}
+.play02 .infoUser, .play02 .historyUser {
+    display: block;
+    text-align: center;
+}
+.countDownLine {
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    height: 3px;
+}
+.countDownLine div {
+    background-color: #00A800;
+    width: 50%;
+    height: 100%;
+    border-radius: 0 0 3px 3px;
+}
+.messageGame {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 50px;
+    top: 0;
+    text-align: center;
+    z-index: 3;
+}
+.messageGame h3{
+    color: #201f56;
+    background-color: #fff;
+    padding: 4px;
+    font-size: 13px;
+    width: 30%;
+    margin: 0 auto;
+    border: 2px solid #201f56;
+    border-top: 0;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 1px 2px 1px #ccc;
+    font-weight: normal;
+    min-width: 280px;
+}
+@media screen and (max-width: 450px) {
+    .showDetailUser {
+        top: 35px;
+        width: 150px;
+    }
+    .play01 {
+        left: 3px;
+    }
+    .play02 {
+        right: 3px;
+    }
+}

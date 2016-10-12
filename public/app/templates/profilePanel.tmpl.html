@@ -1,0 +1,31 @@
+<md-card>
+    <loading-circle is-loading="info.isLoading"></loading-circle>
+    <md-card-title class="md-card-title" ng-if="!info.isLoading">
+        <md-card-title-text>
+            <span class="title">{{info.data.displayName}}</span>
+            <span>Học sĩ</span>
+            <div class="description" layout="row">
+                <div layout="column" class="info-title" flex="50">
+                    <p>Level:</p>
+                    <p>Lượt chơi:</p>
+                    <p>Thắng:</p>
+                    <p>Bạn bè:</p>
+                </div>
+                <div layout="column" flex="50">
+                    <p>{{info.data.level}}</p>
+                    <p>{{info.data.games}}</p>
+                    <p>{{info.data.percent}}%</p>
+                    <p>{{info.data.friends.length}}</p>
+                </div>
+            </div>
+        </md-card-title-text>
+        <md-card-title-media class="md-card-media">
+            <div class="md-media-md card-media">
+                <img style="width: 110px;" ng-src="{{info.data.avatar}}"/>
+            </div>
+        </md-card-title-media>
+    </md-card-title>
+    <md-card-actions class="md-card-action" ng-if="!info.isLoading" layout="row" layout-align="end center">
+        <md-button ng-click="$root.popupProfile = null" ng-href="/user/{{info.data.username}}?utm_campaign=track&utm_source=profile" class="md-raised md-primary">Xem trang</md-button>
+    </md-card-actions>
+</md-card>

@@ -1,0 +1,581 @@
+/* author:dat09 */
+.overlay-marker>img{
+    width: 100%;
+    height: auto;
+}
+section.press button {
+    color: #fff;
+    background-color: #201F56;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 7px #F1702F;
+}
+
+section.press button:hover,
+section.press button.hover {
+    background-color: #FF9966;
+    color: #201F56;
+}
+
+section.press button:active,
+section.press button.active {
+    background-color: #003366;
+    box-shadow: 0 4px #FF9966;
+    transform: translateY(5px);
+}
+
+.IqTestAnswer_imageAnswers {
+    min-width: 70px;
+    min-height: 30px;
+    margin: 10px 15px 20px 30px;
+    padding: 3px 13px 3px 13px;
+}
+
+.f-lef {
+    float: left;
+}
+
+.IqTestPlayer_point {
+    margin: 0;
+    color: #ffbe1a;
+    font-size: 4vmin;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+
+.fade-in-fast {
+    animation: fadeUpIn 1s;
+}
+
+.fade-in {
+    animation: fadeUpIn 2s;
+}
+
+.fade-out {
+    animation: fadeUpOut 2s;
+}
+
+@keyframes fadeUpIn {
+    0% {
+        opacity: 0;
+        /*transform: translate3d(0, 100%, 0);*/
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        /*transform: none;*/
+    }
+}
+
+@keyframes fadeUpOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes bounceInRight {
+    from, 60%, 75%, 90%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(3000px, 0, 0);
+        transform: translate3d(3000px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(-25px, 0, 0);
+        transform: translate3d(-25px, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(-5px, 0, 0);
+        transform: translate3d(-5px, 0, 0);
+    }
+
+    to {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.bounceInRight {
+    -webkit-animation-name: bounceInRight;
+    animation-name: bounceInRight;
+}
+
+@keyframes bounceInLeft {
+    from, 60%, 75%, 90%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-3000px, 0, 0);
+        transform: translate3d(-3000px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0);
+        transform: translate3d(25px, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0);
+    }
+
+    to {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@-webkit-keyframes bounceInLeft {
+    from, 60%, 75%, 90%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(3000px, 0, 0);
+        transform: translate3d(3000px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(-25px, 0, 0);
+        transform: translate3d(-25px, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(-5px, 0, 0);
+        transform: translate3d(-5px, 0, 0);
+    }
+
+    to {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.bounceInLeft {
+    -webkit-animation-name: bounceInLeft;
+    animation-name: bounceInLeft;
+}
+
+#iqTextQuestionNumber {
+
+}
+
+/*phone*/
+
+@media (max-width: 960px) {
+
+
+
+    #iqTextCountdownTime {
+        margin: 10px;
+        color: #F1702F;
+        font-size: 9vmin;
+        font-weight: 500;
+        line-height: 1.2em;
+    }
+
+    #iqTextQuestionNumber {
+        margin: 10px;
+        color: #003366;
+        font-size: 12vmin;
+        font-weight: 900;
+        line-height: 1.2em;
+    }
+
+    #iqTestContent {
+        margin: 10px;
+        color: #003366;
+        font-size: 5vmin;
+        font-weight: 900;
+        line-height: 1.2em;
+    }
+
+    #iqTestInputAnswerButton {
+        /*display: inline-block;*/
+    }
+
+    #gameContent {
+        text-align: center;
+    }
+
+    #iqTestInputAnswerPart {
+        margin-top: 20px;
+    }
+
+    #iqQuestion_questionImage {
+        max-width: 100%;
+    }
+
+    #iqTestInputAnswerTextBox input[type="text"] {
+        font-size: 24px;
+        font-weight: 900;
+    }
+
+    #iqTestEndGameResult {
+        margin: 10px;
+        color: #201F56;
+        font-size: 5vmin;
+        font-weight: 900;
+        line-height: 1.2em;
+    }
+
+    #linechart_material {
+        /*width: 95%;*/
+        /*height: auto;*/
+        /*margin: 10px auto;*/
+        /*width: 700px; height: 500px;*/
+    }
+
+    #EndGameResult {
+        text-align: center;
+        color: #201F56;
+        font-size: 5vmin;
+        font-weight: 900;
+        line-height: 1.2em;
+        margin: 9px auto;
+        padding: 15px;
+    }
+
+    #iqTest_ResultWrapper {
+        width: 100%;
+    }
+
+    #iqTest_chartImg {
+        width: 100%;
+    }
+
+    #iqTestSpecialIQShow {
+        font-size: 40px;
+        color: #F1702F;
+        margin: 10px auto;
+    }
+}
+
+/*end phone*/
+
+/*laptop*/
+@media (min-width: 960px) {
+
+    #iqTextCountdownTime {
+        margin: 10px;
+        color: #F1702F;
+        font-size: 4vmin;
+        font-weight: 900;
+        line-height: 1.2em;
+    }
+
+    #iqTextQuestionNumber {
+        margin: 10px;
+        color: #003366;
+        font-size: 6vmin;
+        font-weight: 900;
+        line-height: 1.2em;
+    }
+
+    #iqTestContent {
+        color: #003366;
+        font-size: 3vmin;
+        font-weight: 900;
+        line-height: 1.2em;
+    }
+
+    #iqTestInputAnswerButton {
+        display: inline-block;
+    }
+
+    #gameContent {
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    #iqTestInputAnswerPart {
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    #iqQuestion_questionImage {
+        max-width: 100%;
+        width: 50%;
+    }
+
+    #iqTestInputAnswerTextBox input[type="text"] {
+        font-size: 24px;
+        font-weight: 900;
+    }
+
+    #iqTestEndGameResult {
+        margin: 10px;
+        color: #201F56;
+        font-size: 5vmin;
+        font-weight: 900;
+        line-height: 1.2em;
+    }
+
+    #EndGameResult {
+        text-align: center;
+        color: #201F56;
+        font-size: 3vmin;
+        font-weight: 900;
+        line-height: 1.2em;
+        max-width: 60%;
+        margin: 0px auto;
+    }
+
+    #iqTest_ResultWrapper {
+        width: 100%;
+    }
+
+    #iqTest_chartImg {
+        width: 100%;
+    }
+
+    #iqTestSpecialIQShow {
+        font-size: 50px;
+        color: #F1702F;
+        margin: 15px auto;
+    }
+}
+
+/*end laptop*/
+
+/*fade in down*/
+
+@-webkit-keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -30%, 0);
+        transform: translate3d(0, -30%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -30%, 0);
+        transform: translate3d(0, -30%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
+.iqTestSpecialNumber {
+    color: #F1702F;
+}
+
+.chartWithMarkerOverlay {
+    position: relative;
+    width: 100%;
+}
+
+#overlay-text {
+    top: 0px;
+    height: 100%;
+    font-family: "Open Sans"!important;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    left: 0;
+}
+
+#iqResultIQNumber {
+    color: #fff;
+    font-weight: bold;
+    font-size: 40px;
+    padding: 20px;
+    background: #F1702F;
+    letter-spacing: .11em;
+}
+
+
+#iqTest_ResultDetail {
+    font-size: 14px;
+    letter-spacing: .21em;
+    margin-top: -7px;
+    background: #201F56;
+    color: #fff;
+    padding: 2px;
+}
+
+.overlay-marker {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    /*top: 53px; !* chartArea top *!*/
+    /*left: 528px; !* chartArea left *!*/
+}
+#tempWrap{
+    /*min-height: 400px;*/
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+}
+/*laptop 2*/
+@media (min-width: 699px){
+    #iqTestChart{
+        width: 70%;
+        /*float: left;*/
+        position: relative;
+    }
+    #iqResultTable {
+        margin-left: 70%;
+        height: 75%;
+        text-align: center;
+        /*float: right;*/
+    }
+}
+/*phone 2*/
+@media (max-width: 699px) {
+    #iqTestChart{
+        width: 100%;
+        /*float: left;*/
+        position: relative;
+    }
+    #iqResultTable {
+        display: none;
+    }
+
+    .overlay-marker {
+        width: 20px;
+        height: 20px;
+    }
+    #overlay-text{
+        top: 0px;
+        height: 100%;
+    }
+    #iqResultIQNumber {
+        font-weight: bold;
+        font-size: 20px;
+        padding: 2px;
+        letter-spacing: .11em;
+    }
+
+    #iqTest_ResultDetail {
+        font-size: 13px;
+        letter-spacing: .16em;
+        margin-top: -1px;
+        padding: 1px;
+    }
+}
+/*end phone 2*/
+#iqTest_UserImage{
+    border-radius: 50%;
+}
+#iqResultTable div{
+    /*margin: auto;*/
+    height: 100%;
+    float: left;
+}
+#iqResultTable div table{
+    /*border: solid 2px #201F56;*/
+    color: #F1702F;
+    background: #fff;
+    height: 100%;
+    border-collapse:collapse;
+}
+
+#iqResultTable div table tr:first-child{
+    border-bottom: solid 2px #F1702F;
+    border-top: solid 2px #F1702F;
+}
+#iqResultTable div table tr:last-child{
+    border-bottom: solid 2px #F1702F;
+}
+#iqResultTable div:first-child table tr:nth-child(even){
+    /*height: 46%;*/
+    /*color: blue;*/
+}
+#iqResultTable div:last-child table tr:nth-child(odd){
+    /*color: yellow;*/
+}
+#iqResultTable div:last-child table tr:first-child{
+    color: #F1702F;
+}
+#iqResultTable div table td{
+    width: 22.5%;
+}
+#iqResultTable div table tr td:first-child{
+    font-weight: 900;
+}
+.iqTestLineBetweenTable{
+    float: left;
+    width: 2px;
+    height: 100%;
+    background-color: #F1702F;
+}
+/*iphone5*/
+@media (max-width: 320px) {
+
+}
+@media (max-width: 699px) {
+
+}
+
+.iqTestResultImage{
+    height: 19px;
+    width: 19px;
+}
+/*html, body    {*/
+    /*width: 100%;*/
+/*}*/

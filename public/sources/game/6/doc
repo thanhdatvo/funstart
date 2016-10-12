@@ -1,0 +1,55 @@
+object:
+gameController = {
+	currentLevel: 
+	squareController:
+	currentHP:
+	
+} 
+
+squareController = {
+	image_square = [];
+
+	numberSquare = (Number);
+	correctNumber = (Number);
+
+	-- onclick2Times
+	-- giveAnswer
+	-- setLevel
+	-- setSize (3x3 or 4x4)
+}
+
+squareObject = {
+	-- onclick(return true/false)
+	-- source 
+	-- setSize
+}
+
+point 20000: average
+30000: max
+
+gameContent{
+	level:
+	timer:
+	tableOfImages:	
+}
+2 * 2 / 1
+3 * 3 / 2
+4 * 4 / 3
+5 * 5 / 4
+
+khi chua xong => cho => khi xong roi=> thuc hien va thoat
+
+GAME OVER
+You reach lv 50!
+You are stupid!
+Try again or changallge your friends!
+
+gameManager
+- gameIntroducer
+- gameOperator
+- gameFinisher
+
+HTMLObject.hide()
+HTMLObject.show()
+
+

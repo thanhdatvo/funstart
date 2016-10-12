@@ -1,0 +1,41 @@
+<html>
+<head>
+    <fs-link href="/main.css" rel="stylesheet" type="text/css" />
+    <!--<fs-script src="/realtime.js"></fs-script>-->
+    <script src="./js/game.total.js"></script>
+</head>
+<body>
+<fs-script src="/main.js"></fs-script>
+<div class="bodyGame">
+    <div class="messageGame"><h3></h3></div>
+    <div class="showDetailUser play01">
+        <img src="" />
+        <div class="infoUser"></div>
+        <div class="historyUser"></div>
+        <div class="countDownLine">
+            <div></div>
+        </div>
+    </div>
+    <div class="showDetailUser play02">
+        <img src="" />
+        <div class="infoUser"></div>
+        <div class="historyUser"></div>
+        <div class="countDownLine">
+            <div></div>
+        </div>
+    </div>
+    <div class="gameMain">
+
+    </div>
+    <div class="showResult">
+        <div class="mainResult">
+            <h1>Kết thúc</h1>
+            <h2></h2>
+            <div class="btngame playAgain" id="playAgain">Chơi lại</div>
+            <!--<div class="btngame backHome">Về trang chủ</div>-->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

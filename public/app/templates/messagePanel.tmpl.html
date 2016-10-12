@@ -1,0 +1,16 @@
+<div ng-if="item.type==1" class="message-panel" layout="row" layout-align="start center">
+    <span flex="10" style="height: 100%">
+        <img class="message-avatar" ng-src="{{item.avatar}}">
+        <md-tooltip  md-direction="bottom">{{item.displayName}}</md-tooltip>
+    </span>
+    <div flex class="message-bubble">{{item.message}}</div>
+    <div flex="10"></div>
+</div>
+<div ng-if="item.type==0" class="message-panel" layout="row" layout-align="start center">
+    <div flex="10"></div>
+    <div flex><span><div class="message-bubble-me">{{item.message}}</div></span></div>
+    <div flex="10" style="height: 100%">
+        <img class="message-avatar" ng-src="{{item.avatar}}">
+        <md-tooltip md-direction="bottom">{{item.displayName}}</md-tooltip>
+    </div>
+</div>

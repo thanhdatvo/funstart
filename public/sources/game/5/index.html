@@ -1,0 +1,40 @@
+<fs-link href="/main.css"/>
+<script>
+
+
+
+</script>
+<div class="total_game">
+<div class="show_first">
+    <div layout="row" style="padding: 10px;" layout-align="center center">
+        <fs-img class="gameBg" src='/images/hd.png'/>
+    </div>
+
+    <div layout="row" layout-align="center center">
+        <md-button id="start" class="md-raised md-accent">Hiểu rồi, chơi luôn!</md-button>
+    </div>
+
+</div>
+<div class="part01" style="display:none;">
+    <div class="timer_container">
+        <div id="timer" class="timer"></div>
+    </div>
+    <div layout="row" layout-align="space-between start" layout-padding>
+        <div flex="40">
+            <div class="score_container">
+                <p>Điểm: <span id="score" class="score"></span></p>
+            </div>
+            <div id="pb-container" class="pb_container">
+                <p>Thành tích: <span id="pb" class="score"></span></p>
+            </div>
+        </div>
+        <p flex="60" class="tutorial"><span style="color: rgb(241,112,47)">Chọn</span> theo màu, <span
+                style="color: rgb(241,112,47)">không chọn</span> theo chữ</p>
+
+    </div>
+    <p class="word" id="word"></p>
+    <ul id="options" class="options_container"></ul>
+</div>
+</div>
+<script src="./js/game.total.js"></script>
+<fs-script src="/main.js"></fs-script>
