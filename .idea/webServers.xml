@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ece8df4d-c916-40fe-8bc3-a9a4557d8339" name="Funstart" url="http://23.88.239.10">
+        <fileTransfer host="23.88.239.10" port="2222" rootFolder="/home/www.funstart.net/public_html" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="2222" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

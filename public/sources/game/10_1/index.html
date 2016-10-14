@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="./css/animate.css" type="text/css">
+<script src="./js/game.total.js"></script>
+<script src="./js/game.util.js"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'
+      xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" href="/sources/game/10/main.css" type="text/css">
+
+<div id="gameManager">
+    <div id="gameOperator" class="noselect" ondragstart="return false;" ondrop="return false;">
+        <div id="questionsNumberAndTime">
+            <div id="questionsNumber">
+                <div class="questionNumberContainer"><span class="questionNumber">1</span></div>
+                <div class="questionNumberContainer"><span class="questionNumber">2</span></div>
+                <div class="questionNumberContainer"><span class="questionNumber">3</span></div>
+                <div class="questionNumberContainer"><span class="questionNumber">4</span></div>
+                <div class="questionNumberContainer"><span class="questionNumber">5</span></div><br/>
+                <div class="questionNumberContainer"><span class="questionNumber">6</span></div>
+                <div class="questionNumberContainer"><span class="questionNumber">7</span></div>
+                <div class="questionNumberContainer"><span class="questionNumber">8</span></div>
+                <div class="questionNumberContainer"><span class="questionNumber">9</span></div>
+                <div class="questionNumberContainer"><span class="questionNumber">10</span></div>
+            </div>
+            <span id="timer">
+                 <div class="statusBar"></div>
+                 <div class="meter"><span id="timerProgressBar"></span></div>
+            </span>
+        </div>
+        <div id="currentQuestion">
+            <div id="currentQuestion_NumberAndCurrentQuestion_Instruction">
+                <div id="currentQuestion_Number">1/10</div>
+                <div id="currentQuestion_Instruction">Dien vao cho trong</div>
+                <div style="clear: both;"></div>
+            </div>
+            <div id="currentQuestion_image">
+                <img src="/sources/game/10/images/bg.jpg" alt="question">
+            </div>
+            <div id="currentQuestion_AnswerAndCurrentQuestion_Next">
+                <div id="currentQuestion_Answer">
+                    <input type="text">
+                </div>
+                <div id="currentQuestion_Next">
+                    <div id="arrowBody"></div>
+                    <div id="arrowHead"></div>
+                    <div style="clear: both;"></div>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+
+        <!--<div style="display: none">-->
+        <div id="gameInfo">
+            <!--<span>/</span>-->
+            <!--<div id="timerAndScore">-->
+            <span id="score"></span>
+            <span id="level"></span>
+            <!--</div>-->
+
+        </div>
+        <div style="clear: both;"></div>
+        <!--<div style="height:100%">-->
+        <div id="tableContainer">
+            <table id="tableOfObjects"></table>
+        </div>
+        <!--</div>-->
+    </div>
+
+    <div class="total_game" id="showResult" style="position: relative;display: none">
+        <div class="ContentGame">
+            <img class="gameBg" src='/sources/game/7/images/bg.jpg'/>
+
+            <div class="nd"></div>
+            <div class="so"></div>
+        </div>
+        <div class="des"></div>
+    </div>
+    <!--</div>-->
+    <fs-script src="/modals.js"></fs-script>
+    <fs-script src="/main.js"></fs-script>
+</div>
+ 
